@@ -175,6 +175,43 @@
                 <artifactId>spring-ai-agent-model</artifactId>
                 <version>0.10.0</version>
             </dependency>
+            <dependency>
+                <groupId>org.springaicommunity.agents</groupId>
+                <artifactId>spring-ai-advisors-judge</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springaicommunity.agents</groupId>
+                <artifactId>spring-ai-agent-launcher</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+
+            <!-- Agent Client Starters -->
+            <dependency>
+                <groupId>org.springaicommunity.agents</groupId>
+                <artifactId>spring-ai-starter-agent-claude</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springaicommunity.agents</groupId>
+                <artifactId>spring-ai-starter-agent-gemini</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springaicommunity.agents</groupId>
+                <artifactId>spring-ai-starter-agent-amp</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springaicommunity.agents</groupId>
+                <artifactId>spring-ai-starter-agent-codex</artifactId>
+                <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springaicommunity.agents</groupId>
+                <artifactId>spring-ai-starter-agent-amazon-q</artifactId>
+                <version>0.10.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
