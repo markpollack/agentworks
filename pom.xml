@@ -6,7 +6,7 @@
 
     <groupId>io.github.markpollack</groupId>
     <artifactId>agentworks-bom</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <packaging>pom</packaging>
 
     <name>AgentWorks BOM</name>
@@ -66,27 +66,37 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-api</artifactId>
-                <version>0.2.0</version>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-core</artifactId>
-                <version>0.2.0</version>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-tools</artifactId>
-                <version>0.2.0</version>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-flows</artifactId>
-                <version>0.2.0</version>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-agents</artifactId>
-                <version>0.2.0</version>
+                <version>0.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>workflow-batch</artifactId>
+                <version>0.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>workflow-temporal</artifactId>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
