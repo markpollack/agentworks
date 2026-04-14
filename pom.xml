@@ -121,12 +121,12 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-core</artifactId>
-                <version>0.1.0</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-claude</artifactId>
-                <version>0.1.0</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
@@ -138,12 +138,12 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-core</artifactId>
-                <version>0.1.0</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-advisor</artifactId>
-                <version>0.1.0</version>
+                <version>0.10.0</version>
             </dependency>
 
             <!-- Agent Client Protocol (ACP) -->
@@ -171,6 +171,16 @@
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-websocket-jetty</artifactId>
                 <version>0.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springaicommunity</groupId>
+                <artifactId>acp-spring-boot-autoconfigure</artifactId>
+                <version>0.11.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springaicommunity</groupId>
+                <artifactId>acp-spring-boot-starter</artifactId>
+                <version>0.11.0</version>
             </dependency>
 
             <!-- Agent Bench -->
