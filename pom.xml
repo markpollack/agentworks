@@ -6,7 +6,7 @@
 
     <groupId>io.github.markpollack</groupId>
     <artifactId>agentworks-bom</artifactId>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.12</version>
     <packaging>pom</packaging>
 
     <name>AgentWorks BOM</name>
