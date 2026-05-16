@@ -76,12 +76,12 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>journal-core</artifactId>
-                <version>1.0.0</version>
+                <version>1.1.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>claude-code-capture</artifactId>
-                <version>1.0.0</version>
+                <version>1.1.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
@@ -172,146 +172,127 @@
                 <artifactId>acp-websocket-jetty</artifactId>
                 <version>0.10.0</version>
             </dependency>
+
+            <!-- Claude Agent SDK -->
             <dependency>
-                <groupId>org.springaicommunity</groupId>
-                <artifactId>acp-spring-boot-autoconfigure</artifactId>
-                <version>0.11.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springaicommunity</groupId>
-                <artifactId>acp-spring-boot-starter</artifactId>
-                <version>0.11.0</version>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>claude-code-sdk</artifactId>
+                <version>1.1.0</version>
             </dependency>
 
             <!-- Agent Bench -->
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-core</artifactId>
-                <version>0.2.1</version>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-agents</artifactId>
-                <version>0.2.1</version>
+                <version>0.3.0</version>
             </dependency>
 
-            <!-- Spring AI Community -->
+            <!-- Agent Judge -->
             <dependency>
-                <groupId>org.springaicommunity</groupId>
-                <artifactId>spring-testing-skills</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-core</artifactId>
-                <version>0.9.1</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-llm</artifactId>
-                <version>0.9.1</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-exec</artifactId>
-                <version>0.9.1</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-file</artifactId>
-                <version>0.9.1</version>
+                <version>0.10.0</version>
             </dependency>
+
+            <!-- Agent Sandbox -->
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-sandbox-core</artifactId>
-                <version>0.9.1</version>
+                <version>0.9.2</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-sandbox-docker</artifactId>
-                <version>0.9.1</version>
+                <version>0.9.2</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-sandbox-e2b</artifactId>
-                <version>0.9.1</version>
+                <version>0.9.2</version>
             </dependency>
+
+            <!-- Agent Client -->
             <dependency>
-                <groupId>org.springaicommunity</groupId>
-                <artifactId>spring-ai-agent-utils</artifactId>
-                <version>0.7.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springaicommunity</groupId>
-                <artifactId>claude-code-sdk</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-client-core</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
-                <artifactId>agent-claude</artifactId>
-                <version>0.12.2</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
-                <artifactId>agent-gemini</artifactId>
-                <version>0.12.2</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-model</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
-                <artifactId>agent-advisor-judge</artifactId>
-                <version>0.12.2</version>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-claude</artifactId>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-gemini</artifactId>
+                <version>0.18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-launcher</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-qwen-code</artifactId>
+                <version>0.18.0</version>
             </dependency>
 
             <!-- Agent Client Starters -->
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-claude</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-gemini</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amp</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-codex</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amazon-q</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
-                <artifactId>agent-qwen-code</artifactId>
-                <version>0.12.2</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springaicommunity.agents</groupId>
+                <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-qwen-code</artifactId>
-                <version>0.12.2</version>
+                <version>0.18.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
