@@ -180,8 +180,7 @@
                 <version>1.1.0</version>
             </dependency>
 
-            <!-- Agent Bench — not yet published to Maven Central, pending portal validation fix -->
-            <!--
+            <!-- Agent Bench -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-core</artifactId>
@@ -192,7 +191,6 @@
                 <artifactId>agent-bench-agents</artifactId>
                 <version>0.3.0</version>
             </dependency>
-            -->
 
             <!-- Agent Judge -->
             <dependency>
