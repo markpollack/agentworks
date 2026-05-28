@@ -121,12 +121,12 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-core</artifactId>
-                <version>0.2.0</version>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-claude</artifactId>
-                <version>0.2.0</version>
+                <version>0.3.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
