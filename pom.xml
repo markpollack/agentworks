@@ -48,10 +48,47 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- Test infrastructure versions -->
+        <mockito.version>5.11.0</mockito.version>
+        <byte-buddy.version>1.14.12</byte-buddy.version>
+        <assertj.version>3.26.3</assertj.version>
+        <junit-jupiter.version>5.10.3</junit-jupiter.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Test Infrastructure — aligned Mockito + Byte Buddy -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-bom</artifactId>
+                <version>${mockito.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>${byte-buddy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy-agent</artifactId>
+                <version>${byte-buddy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- Mark Pollack - Agent Suite -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
@@ -116,6 +153,11 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-temporal</artifactId>
+                <version>0.8.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>workflow-journal</artifactId>
                 <version>0.8.0</version>
             </dependency>
             <dependency>
