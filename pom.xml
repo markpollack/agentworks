@@ -123,42 +123,42 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-api</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-core</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-tools</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-flows</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-agents</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-batch</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-temporal</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-journal</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
