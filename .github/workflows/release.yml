@@ -1,5 +1,10 @@
 name: Release
 
+# Publishes agentworks-bom to Maven Central, GATED by bom-verification.
+# Safety invariant: the BOM publishes only behind a fully green bom-verification gate.
+#   gate         — pre-publish: install the BOM locally, run the 9/9 harness; red blocks the release.
+#   release      — the shared Maven Central release (needs: gate).
+#   final-proof  — post-publish: poll Central (bounded/timeout-guarded), re-verify the real artifact.
 on:
   workflow_dispatch:
     inputs:
@@ -9,7 +14,29 @@ on:
         type: string
 
 jobs:
+  # Pre-publish enforcement. Resolves + verifies the BOM (plain / boot35 / boot4 scenarios,
+  # RequireUpperBoundDeps + Jackson convergence) against the current source. Red here blocks publish.
+  gate:
+    name: bom-verification gate (9/9)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+      - name: Install the BOM to local m2 + run the 9/9 gate
+        run: |
+          VER=$(./mvnw -q -N help:evaluate -Dexpression=project.version -DforceStdout 2>/dev/null)
+          if [ -z "$VER" ]; then echo "::error::could not determine project.version"; exit 1; fi
+          echo "Gating agentworks-bom $VER"
+          ./mvnw -B -N install -DskipTests
+          ./mvnw -B -f bom-verification/pom.xml verify -Dagentworks-bom.version="$VER"
+
   release:
+    needs: gate
     permissions:
       contents: write
     uses: markpollack/build-tools/.github/workflows/maven-central-release.yml@main
@@ -20,3 +47,31 @@ jobs:
       MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
       GPG_SECRET_KEY: ${{ secrets.GPG_SECRET_KEY }}
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+  # Post-publish proof. Poll Central for the released pom (bounded, ~20m max — timeout guard per the
+  # 18h-stall incident 2026-06-08), then run the gate from a FRESH local repo against the real artifact.
+  final-proof:
+    name: FINAL_PROOF (verify from Central)
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+      - name: Poll Central, then verify the released BOM from a fresh repo
+        run: |
+          VER="${{ inputs.version }}"
+          POM="https://repo1.maven.org/maven2/io/github/markpollack/agentworks-bom/${VER}/agentworks-bom-${VER}.pom"
+          echo "Polling Central for ${POM}"
+          for i in $(seq 1 40); do
+            if curl -sfI "$POM" >/dev/null 2>&1; then echo "visible on Central (attempt ${i})"; break; fi
+            if [ "$i" -eq 40 ]; then echo "::error::agentworks-bom ${VER} not visible on Central after ~20m"; exit 1; fi
+            sleep 30
+          done
+          timeout 600 ./mvnw -B -f bom-verification/pom.xml verify \
+            -Dagentworks-bom.version="${VER}" \
+            -Dmaven.repo.local="${RUNNER_TEMP}/central-verify-${VER}"
