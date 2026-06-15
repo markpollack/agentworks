@@ -52,6 +52,12 @@
             <groupId>io.github.markpollack</groupId>
             <artifactId>claude-code-sdk</artifactId>
         </dependency>
+        <!-- workflow-flows: exercises the spring-ai-client-chat path so the BOM's spring-ai-bom
+             backstop (CVE-2026-41712) is covered by the gate going forward. -->
+        <dependency>
+            <groupId>io.github.markpollack</groupId>
+            <artifactId>workflow-flows</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
