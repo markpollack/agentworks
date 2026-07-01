@@ -335,64 +335,64 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-client-core</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-model</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-claude</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-gemini</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-launcher</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-qwen-code</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
 
             <!-- Agent Client Starters -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-claude</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-gemini</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amp</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-codex</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amazon-q</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-qwen-code</artifactId>
-                <version>0.24.0</version>
+                <version>0.25.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
