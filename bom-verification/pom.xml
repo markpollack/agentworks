@@ -14,7 +14,9 @@
       boot35  — Spring Boot 3.5.x / Framework 6.2 consumer (Jackson 2 native)
       boot4   — Spring Boot 4.0.x / Framework 7 consumer (Jackson 3 default, Jackson 2 side-by-side)
 
-    Run:  ../mvnw -f bom-verification/pom.xml verify
+    Current checkout: ../scripts/verify-bom
+    Direct use requires an explicit version:
+      ../mvnw -f bom-verification/pom.xml verify -Dagentworks-bom.version=<version>
     Gate an older BOM:  ../mvnw -f bom-verification/pom.xml verify -Dagentworks-bom.version=1.5.0
 
     NOT published — verification only.
@@ -42,7 +44,6 @@
         <maven.compiler.release>17</maven.compiler.release>
         <maven.deploy.skip>true</maven.deploy.skip>
 
-        <agentworks-bom.version>1.11.0</agentworks-bom.version>
         <spring-boot-35.version>3.5.14</spring-boot-35.version>
         <spring-boot-4.version>4.0.6</spring-boot-4.version>
     </properties>

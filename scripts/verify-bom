@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_dir="$(cd -- "${script_dir}/.." && pwd)"
+cd "${repo_dir}"
+
+usage() {
+    echo "Usage: $0 [--release-version X.Y.Z]" >&2
+}
+
+release_version=""
+if [[ $# -gt 0 ]]; then
+    if [[ $# -ne 2 || "$1" != "--release-version" ]]; then
+        usage
+        exit 2
+    fi
+    release_version="$2"
+fi
+
+bom_version="$(./mvnw -q -N help:evaluate \
+    -Dexpression=project.version \
+    -DforceStdout 2>/dev/null)"
+
+if [[ -z "${bom_version}" ]]; then
+    echo "ERROR: could not determine the BOM version from pom.xml" >&2
+    exit 1
+fi
+
+if [[ -n "${release_version}" ]]; then
+    if [[ "${release_version}" == *-SNAPSHOT ]]; then
+        echo "ERROR: --release-version must name a stable version, not ${release_version}" >&2
+        exit 1
+    fi
+
+    if [[ "${bom_version}" != "${release_version}" && "${bom_version}" != "${release_version}-SNAPSHOT" ]]; then
+        echo "ERROR: checkout version ${bom_version} does not match release ${release_version}" >&2
+        exit 1
+    fi
+
+    check_dir="$(mktemp -d "${TMPDIR:-/tmp}/agentworks-release-check.XXXXXX")"
+    trap 'rm -rf -- "${check_dir}"' EXIT
+    effective_pom="${check_dir}/effective-pom.xml"
+    ./mvnw -q -N help:effective-pom -Doutput="${effective_pom}"
+
+    snapshot_dependencies="$(awk '
+        /<dependencyManagement>/ { in_management = 1 }
+        in_management && /<dependency>/ {
+            in_dependency = 1
+            dependency = ""
+        }
+        in_dependency { dependency = dependency $0 ORS }
+        in_dependency && /<\/dependency>/ {
+            if (dependency ~ /<version>[^<]*-SNAPSHOT<\/version>/) {
+                printf "%s", dependency
+            }
+            in_dependency = 0
+            dependency = ""
+        }
+        in_management && /<\/dependencyManagement>/ { in_management = 0 }
+    ' "${effective_pom}")"
+
+    if [[ -n "${snapshot_dependencies}" ]]; then
+        echo "ERROR: stable release ${release_version} would manage SNAPSHOT dependencies:" >&2
+        printf '%s\n' "${snapshot_dependencies}" >&2
+        exit 1
+    fi
+fi
+
+echo "Verifying agentworks-bom ${bom_version} from the current checkout"
+./mvnw -B -N install -DskipTests
+./mvnw -B -f bom-verification/pom.xml verify \
+    -Dagentworks-bom.version="${bom_version}"

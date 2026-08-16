@@ -28,12 +28,9 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Install the BOM to local m2 + run the 9/9 gate
-        run: |
-          VER=$(./mvnw -q -N help:evaluate -Dexpression=project.version -DforceStdout 2>/dev/null)
-          if [ -z "$VER" ]; then echo "::error::could not determine project.version"; exit 1; fi
-          echo "Gating agentworks-bom $VER"
-          ./mvnw -B -N install -DskipTests
-          ./mvnw -B -f bom-verification/pom.xml verify -Dagentworks-bom.version="$VER"
+        env:
+          AGENTWORKS_RELEASE_VERSION: ${{ inputs.version }}
+        run: ./scripts/verify-bom --release-version "${AGENTWORKS_RELEASE_VERSION}"
 
   release:
     needs: gate
@@ -63,8 +60,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Poll Central, then verify the released BOM from a fresh repo
+        env:
+          AGENTWORKS_RELEASE_VERSION: ${{ inputs.version }}
         run: |
-          VER="${{ inputs.version }}"
+          VER="${AGENTWORKS_RELEASE_VERSION}"
           POM="https://repo1.maven.org/maven2/io/github/markpollack/agentworks-bom/${VER}/agentworks-bom-${VER}.pom"
           echo "Polling Central for ${POM}"
           for i in $(seq 1 40); do
