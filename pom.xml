@@ -49,15 +49,14 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <!-- Jackson 2 — aligned with Spring Boot 3.5.x (jackson-bom) and
-             Boot 4.0.x (jackson-2-bom), and with every member project's pin.
-             Members align at source; this import protects consumers from
-             third-party transitive strays (e.g. networknt's dataformat-yaml). -->
-        <jackson.version>2.21.2</jackson.version>
+        <!-- Jackson 2 — patched default for framework-free consumers. Boot consumers may select
+             their maintenance line's Jackson patch when their Boot BOM has consumer precedence.
+             This import also protects consumers from third-party transitive strays. -->
+        <jackson.version>2.21.6</jackson.version>
 
         <!-- Jackson 3 (tools.jackson) — converge Spring AI 2.0's transitive Jackson 3 to a
-             CVE-clear floor; jsonschema-generator pulls jackson-core 3.0.3 (CVE-2026-29062). -->
-        <jackson3.version>3.1.4</jackson3.version>
+             CVE-clear floor; jsonschema-generator pulls an older jackson-core transitively. -->
+        <jackson3.version>3.1.6</jackson3.version>
         <!-- Reactor — converge claude-code-sdk (3.8.5) with Spring AI 2.0's reactor (3.8.6). -->
         <reactor.version>3.8.6</reactor.version>
 
@@ -68,7 +67,7 @@
         <!-- Test infrastructure versions -->
         <mockito.version>5.11.0</mockito.version>
         <byte-buddy.version>1.14.12</byte-buddy.version>
-        <assertj.version>3.26.3</assertj.version>
+        <assertj.version>3.27.7</assertj.version>
         <junit-jupiter.version>5.10.3</junit-jupiter.version>
     </properties>
 
@@ -84,7 +83,7 @@
             </dependency>
 
             <!-- Jackson 3 BOM (tools.jackson) — converge Spring AI 2.0's transitive Jackson 3 so
-                 jackson-core resolves to a CVE-clear 3.1.4 (jsonschema-generator drags in 3.0.3). -->
+                 jackson-core resolves to the patched floor for non-Boot consumers. -->
             <dependency>
                 <groupId>tools.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
