@@ -39,33 +39,8 @@ if [[ -n "${release_version}" ]]; then
         exit 1
     fi
 
-    check_dir="$(mktemp -d "${TMPDIR:-/tmp}/agentworks-release-check.XXXXXX")"
-    trap 'rm -rf -- "${check_dir}"' EXIT
-    effective_pom="${check_dir}/effective-pom.xml"
-    ./mvnw -q -N help:effective-pom -Doutput="${effective_pom}"
-
-    snapshot_dependencies="$(awk '
-        /<dependencyManagement>/ { in_management = 1 }
-        in_management && /<dependency>/ {
-            in_dependency = 1
-            dependency = ""
-        }
-        in_dependency { dependency = dependency $0 ORS }
-        in_dependency && /<\/dependency>/ {
-            if (dependency ~ /<version>[^<]*-SNAPSHOT<\/version>/) {
-                printf "%s", dependency
-            }
-            in_dependency = 0
-            dependency = ""
-        }
-        in_management && /<\/dependencyManagement>/ { in_management = 0 }
-    ' "${effective_pom}")"
-
-    if [[ -n "${snapshot_dependencies}" ]]; then
-        echo "ERROR: stable release ${release_version} would manage SNAPSHOT dependencies:" >&2
-        printf '%s\n' "${snapshot_dependencies}" >&2
-        exit 1
-    fi
+    echo "Checking stable release ${release_version} for managed SNAPSHOT dependencies"
+    ./scripts/check-no-managed-snapshots pom.xml
 fi
 
 echo "Verifying agentworks-bom ${bom_version} from the current checkout"

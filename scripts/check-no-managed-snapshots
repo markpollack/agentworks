@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_dir="$(cd -- "${script_dir}/.." && pwd)"
+cd "${repo_dir}"
+
+if [[ $# -gt 1 ]]; then
+    echo "Usage: $0 [POM]" >&2
+    exit 2
+fi
+
+pom_path="${1:-pom.xml}"
+if [[ ! -f "${pom_path}" ]]; then
+    echo "ERROR: POM not found: ${pom_path}" >&2
+    exit 2
+fi
+
+check_dir="$(mktemp -d "${TMPDIR:-/tmp}/agentworks-snapshot-check.XXXXXX")"
+trap 'rm -rf -- "${check_dir}"' EXIT
+effective_pom="${check_dir}/effective-pom.xml"
+
+./mvnw -q -N -f "${pom_path}" help:effective-pom -Doutput="${effective_pom}"
+
+snapshot_dependencies="$(awk '
+    /<dependencyManagement>/ { in_management = 1 }
+    in_management && /<dependency>/ {
+        in_dependency = 1
+        dependency = ""
+    }
+    in_dependency { dependency = dependency $0 ORS }
+    in_dependency && /<\/dependency>/ {
+        if (dependency ~ /<version>[^<]*-SNAPSHOT<\/version>/) {
+            printf "%s", dependency
+        }
+        in_dependency = 0
+        dependency = ""
+    }
+    in_management && /<\/dependencyManagement>/ { in_management = 0 }
+' "${effective_pom}")"
+
+if [[ -n "${snapshot_dependencies}" ]]; then
+    echo "ERROR: ${pom_path} manages SNAPSHOT dependencies:" >&2
+    printf '%s\n' "${snapshot_dependencies}" >&2
+    exit 1
+fi
+
+echo "No managed SNAPSHOT dependencies found in ${pom_path}"

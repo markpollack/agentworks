@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_dir="$(cd -- "${script_dir}/.." && pwd)"
+cd "${repo_dir}"
+
+fixture="bom-verification/fixtures/managed-snapshot/pom.xml"
+output_file="$(mktemp "${TMPDIR:-/tmp}/agentworks-release-guard.XXXXXX")"
+trap 'rm -f -- "${output_file}"' EXIT
+
+if ./scripts/check-no-managed-snapshots "${fixture}" >"${output_file}" 2>&1; then
+    echo "ERROR: stable-release guard accepted the managed SNAPSHOT fixture" >&2
+    exit 1
+fi
+
+if ! grep -Fq '<artifactId>managed-snapshot</artifactId>' "${output_file}"; then
+    echo "ERROR: stable-release guard did not identify the synthetic SNAPSHOT" >&2
+    cat "${output_file}" >&2
+    exit 1
+fi
+
+echo "Stable-release guard rejected the synthetic managed SNAPSHOT as expected"

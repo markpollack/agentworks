@@ -22,5 +22,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+      - name: Test stable-release SNAPSHOT guard
+        run: ./scripts/test-release-guard
       - name: Verify current BOM
         run: ./scripts/verify-bom
