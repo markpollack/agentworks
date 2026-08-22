@@ -145,37 +145,37 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-core</artifactId>
-                <version>0.6.4</version>
+                <version>0.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-spring</artifactId>
-                <version>0.6.4</version>
+                <version>0.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-claude</artifactId>
-                <version>0.6.4</version>
+                <version>0.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-gemini</artifactId>
-                <version>0.6.4</version>
+                <version>0.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>journal-core</artifactId>
-                <version>1.6.0</version>
+                <version>1.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>claude-code-capture</artifactId>
-                <version>1.6.0</version>
+                <version>1.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>gemini-cli-capture</artifactId>
-                <version>1.6.0</version>
+                <version>1.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
@@ -220,178 +220,173 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-core</artifactId>
-                <version>0.5.0</version>
+                <version>0.6.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-claude</artifactId>
-                <version>0.5.0</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.markpollack</groupId>
-                <artifactId>loopy</artifactId>
-                <version>0.4.0</version>
+                <version>0.6.0</version>
             </dependency>
 
             <!-- Agent Memory -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-core</artifactId>
-                <version>0.3.0</version>
+                <version>0.4.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-advisor</artifactId>
-                <version>0.3.0</version>
+                <version>0.4.0</version>
             </dependency>
 
             <!-- Agent Client Protocol (ACP) -->
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-annotations</artifactId>
-                <version>0.14.0</version>
+                <version>0.15.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-core</artifactId>
-                <version>0.14.0</version>
+                <version>0.15.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-agent-support</artifactId>
-                <version>0.14.0</version>
+                <version>0.15.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-test</artifactId>
-                <version>0.14.0</version>
+                <version>0.15.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-websocket-jetty</artifactId>
-                <version>0.14.0</version>
+                <version>0.15.0</version>
             </dependency>
 
             <!-- Claude Agent SDK -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>claude-code-sdk</artifactId>
-                <version>1.4.0</version>
+                <version>1.5.0</version>
             </dependency>
 
             <!-- Agent Bench -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-core</artifactId>
-                <version>0.4.0</version>
+                <version>0.6.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-agents</artifactId>
-                <version>0.4.0</version>
+                <version>0.6.0</version>
             </dependency>
 
             <!-- Agent Judge -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-core</artifactId>
-                <version>0.13.0</version>
+                <version>0.15.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-llm</artifactId>
-                <version>0.13.0</version>
+                <version>0.15.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-exec</artifactId>
-                <version>0.13.0</version>
+                <version>0.15.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-file</artifactId>
-                <version>0.13.0</version>
+                <version>0.15.0</version>
             </dependency>
 
             <!-- Agent Sandbox -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-sandbox-core</artifactId>
-                <version>0.9.3</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-sandbox-docker</artifactId>
-                <version>0.9.3</version>
+                <version>0.10.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-sandbox-e2b</artifactId>
-                <version>0.9.3</version>
+                <version>0.10.0</version>
             </dependency>
 
             <!-- Agent Client -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-client-core</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-model</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-claude</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-gemini</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-launcher</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-qwen-code</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
 
             <!-- Agent Client Starters -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-claude</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-gemini</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amp</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-codex</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amazon-q</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-qwen-code</artifactId>
-                <version>0.25.0</version>
+                <version>0.28.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
