@@ -5,8 +5,8 @@
     Consumes agentworks-bom exactly like a fresh consumer and verifies, per scenario:
       1. maven-enforcer requireUpperBoundDeps  — no dependency resolves below what
          another dependency requires (this is what a mixed Jackson set looks like).
-      2. JacksonConvergenceTest                — all Jackson 2 jars report one version,
-         the SDK message-parse path works, and TraceWriter output is non-empty
+      2. JacksonConvergenceTest                — Jackson 2 runtime modules converge without an
+         annotations downgrade, the SDK message-parse path works, and TraceWriter output is non-empty
          (the agentworks-bom 1.5.0 runtime regression).
 
     Scenarios:

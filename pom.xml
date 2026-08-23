@@ -6,7 +6,7 @@
 
     <groupId>io.github.markpollack</groupId>
     <artifactId>agentworks-bom</artifactId>
-    <version>1.17.0-SNAPSHOT</version>
+    <version>1.17.0</version>
     <packaging>pom</packaging>
 
     <name>AgentWorks BOM</name>
@@ -53,15 +53,18 @@
              their maintenance line's Jackson patch when their Boot BOM has consumer precedence.
              This import also protects consumers from third-party transitive strays. -->
         <jackson.version>2.21.6</jackson.version>
+        <!-- Jackson 3.2.1 requires the separately versioned Jackson 2 annotations artifact. -->
+        <jackson-annotations.version>2.22</jackson-annotations.version>
 
         <!-- Jackson 3 (tools.jackson) — converge Spring AI 2.0's transitive Jackson 3 to a
              CVE-clear floor; jsonschema-generator pulls an older jackson-core transitively. -->
-        <jackson3.version>3.1.6</jackson3.version>
+        <jackson3.version>3.2.1</jackson3.version>
+        <!-- NetworkNT JSON Schema Validator — direct floor for no-parent consumers. -->
+        <networknt-json-schema-validator.version>3.0.7</networknt-json-schema-validator.version>
         <!-- Reactor — converge claude-code-sdk (3.8.5) with Spring AI 2.0's reactor (3.8.6). -->
         <reactor.version>3.8.6</reactor.version>
 
-        <!-- Spring AI — converge spring-ai-client-chat to GA for consumers (CVE-2026-41712);
-             workflow-flows 0.10.0 otherwise pulls spring-ai-client-chat 2.0.0-M3 transitively. -->
+        <!-- Spring AI — keep every managed Spring AI artifact on the GA line for consumers. -->
         <spring-ai.version>2.0.0</spring-ai.version>
 
         <!-- Test infrastructure versions -->
@@ -82,6 +85,13 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- Jackson annotations are shared with Jackson 3 and version independently. -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.version}</version>
+            </dependency>
+
             <!-- Jackson 3 BOM (tools.jackson) — converge Spring AI 2.0's transitive Jackson 3 so
                  jackson-core resolves to the patched floor for non-Boot consumers. -->
             <dependency>
@@ -90,6 +100,13 @@
                 <version>${jackson3.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- NetworkNT — retain the security floor when consumers import this BOM. -->
+            <dependency>
+                <groupId>com.networknt</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>${networknt-json-schema-validator.version}</version>
             </dependency>
 
             <!-- Reactor — converge claude-code-sdk (3.8.5) and Spring AI 2.0 (3.8.6). -->
@@ -165,57 +182,57 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>journal-core</artifactId>
-                <version>1.7.0</version>
+                <version>1.8.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>claude-code-capture</artifactId>
-                <version>1.7.0</version>
+                <version>1.8.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>gemini-cli-capture</artifactId>
-                <version>1.7.0</version>
+                <version>1.8.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-api</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-core</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-tools</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-flows</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-agents</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-batch</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-temporal</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-journal</artifactId>
-                <version>0.10.0</version>
+                <version>0.12.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
@@ -329,64 +346,64 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-client-core</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-model</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-claude</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-gemini</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-launcher</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-qwen-code</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
 
             <!-- Agent Client Starters -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-claude</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-gemini</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amp</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-codex</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amazon-q</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-qwen-code</artifactId>
-                <version>0.28.0</version>
+                <version>0.29.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -6,7 +6,7 @@ script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 repo_dir="$(cd -- "${script_dir}/.." && pwd)"
 cd "${repo_dir}"
 
-fixture="bom-verification/fixtures/managed-snapshot/pom.xml"
+fixture="bom-verification/fixtures/managed-snapshot/pom-fixture.xml"
 output_file="$(mktemp "${TMPDIR:-/tmp}/agentworks-release-guard.XXXXXX")"
 trap 'rm -f -- "${output_file}"' EXIT
 

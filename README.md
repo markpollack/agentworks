@@ -25,7 +25,7 @@ Import the latest released BOM:
         <dependency>
             <groupId>io.github.markpollack</groupId>
             <artifactId>agentworks-bom</artifactId>
-            <version>1.15.0</version>
+            <version>1.17.0</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>

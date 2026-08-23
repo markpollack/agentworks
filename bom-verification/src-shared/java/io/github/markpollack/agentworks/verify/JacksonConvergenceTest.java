@@ -29,14 +29,15 @@ import static org.assertj.core.api.Assertions.assertThat;
  * and empty agent answers with retries.
  *
  * Three checks:
- *  1. Every Jackson 2 jar on the classpath reports the SAME version.
+ *  1. Jackson 2 runtime modules converge; the independently versioned annotations artifact does
+ *     not fall below jackson-core.
  *  2. The SDK message-parse path works end to end (the exact NoSuchMethodError site).
  *  3. SessionLogParser writes a NON-EMPTY trace file (the zero-byte symptom).
  */
 class JacksonConvergenceTest {
 
     @Test
-    @DisplayName("all Jackson 2 jars on the classpath resolve to a single version")
+    @DisplayName("Jackson 2 runtime modules converge without an annotations downgrade")
     void jacksonArtifactsConverge() throws Exception {
         List<String> seen = new ArrayList<>();
 
@@ -63,13 +64,21 @@ class JacksonConvergenceTest {
             }
         }
 
-        // Annotations versions as major.minor only since 2.21 — compare the prefix.
+        // Jackson 3.2.1 uses Jackson 2 annotations 2.22, independently of the Jackson 2 runtime
+        // line. Require the same major and forbid an annotations downgrade below jackson-core.
         String annotations = com.fasterxml.jackson.annotation.JsonProperty.class
                 .getPackage().getImplementationVersion();
         if (annotations != null) {
-            assertThat(core.toString())
-                    .as("jackson-annotations (%s) must share major.minor with jackson-core", annotations)
-                    .startsWith(annotations.split("\\.")[0] + "." + annotations.split("\\.")[1]);
+            String[] components = annotations.split("\\.");
+            assertThat(components)
+                    .as("jackson-annotations version must contain major.minor: %s", annotations)
+                    .hasSizeGreaterThanOrEqualTo(2);
+            assertThat(Integer.parseInt(components[0]))
+                    .as("jackson-annotations must remain on major version 2")
+                    .isEqualTo(core.getMajorVersion());
+            assertThat(Integer.parseInt(components[1]))
+                    .as("jackson-annotations (%s) must not be older than jackson-core %s", annotations, core)
+                    .isGreaterThanOrEqualTo(core.getMinorVersion());
         }
     }
 
