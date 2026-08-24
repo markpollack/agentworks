@@ -162,22 +162,22 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-core</artifactId>
-                <version>0.7.0</version>
+                <version>0.8.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-spring</artifactId>
-                <version>0.7.0</version>
+                <version>0.8.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-claude</artifactId>
-                <version>0.7.0</version>
+                <version>0.8.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-gemini</artifactId>
-                <version>0.7.0</version>
+                <version>0.8.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
@@ -237,51 +237,51 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-core</artifactId>
-                <version>0.6.0</version>
+                <version>0.7.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-claude</artifactId>
-                <version>0.6.0</version>
+                <version>0.7.0</version>
             </dependency>
 
             <!-- Agent Memory -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-core</artifactId>
-                <version>0.4.0</version>
+                <version>0.5.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-advisor</artifactId>
-                <version>0.4.0</version>
+                <version>0.5.0</version>
             </dependency>
 
             <!-- Agent Client Protocol (ACP) -->
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-annotations</artifactId>
-                <version>0.15.0</version>
+                <version>0.16.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-core</artifactId>
-                <version>0.15.0</version>
+                <version>0.16.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-agent-support</artifactId>
-                <version>0.15.0</version>
+                <version>0.16.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-test</artifactId>
-                <version>0.15.0</version>
+                <version>0.16.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-websocket-jetty</artifactId>
-                <version>0.15.0</version>
+                <version>0.16.0</version>
             </dependency>
 
             <!-- Claude Agent SDK -->
