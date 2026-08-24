@@ -52,26 +52,26 @@
         <!-- Jackson 2 — patched default for framework-free consumers. Boot consumers may select
              their maintenance line's Jackson patch when their Boot BOM has consumer precedence.
              This import also protects consumers from third-party transitive strays. -->
-        <jackson.version>2.21.6</jackson.version>
+        <jackson.version>2.22.2</jackson.version>
         <!-- Jackson 3.2.1 requires the separately versioned Jackson 2 annotations artifact. -->
         <jackson-annotations.version>2.22</jackson-annotations.version>
 
         <!-- Jackson 3 (tools.jackson) — converge Spring AI 2.0's transitive Jackson 3 to a
              CVE-clear floor; jsonschema-generator pulls an older jackson-core transitively. -->
-        <jackson3.version>3.2.1</jackson3.version>
+        <jackson3.version>3.2.2</jackson3.version>
         <!-- NetworkNT JSON Schema Validator — direct floor for no-parent consumers. -->
         <networknt-json-schema-validator.version>3.0.7</networknt-json-schema-validator.version>
         <!-- Reactor — converge claude-code-sdk (3.8.5) with Spring AI 2.0's reactor (3.8.6). -->
-        <reactor.version>3.8.6</reactor.version>
+        <reactor.version>3.8.7</reactor.version>
 
         <!-- Spring AI — keep every managed Spring AI artifact on the GA line for consumers. -->
-        <spring-ai.version>2.0.0</spring-ai.version>
+        <spring-ai.version>2.0.1</spring-ai.version>
 
         <!-- Test infrastructure versions -->
-        <mockito.version>5.11.0</mockito.version>
-        <byte-buddy.version>1.14.12</byte-buddy.version>
+        <mockito.version>5.23.0</mockito.version>
+        <byte-buddy.version>1.18.12</byte-buddy.version>
         <assertj.version>3.27.7</assertj.version>
-        <junit-jupiter.version>5.10.3</junit-jupiter.version>
+        <junit-jupiter.version>5.14.4</junit-jupiter.version>
     </properties>
 
     <dependencyManagement>
