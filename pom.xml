@@ -221,57 +221,57 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-api</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-core</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-tools</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-flows</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-agents</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-batch</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-temporal</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-journal</artifactId>
-                <version>0.12.1</version>
+                <version>0.12.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-core</artifactId>
-                <version>0.7.1</version>
+                <version>0.7.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-claude</artifactId>
-                <version>0.7.1</version>
+                <version>0.7.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-workflow</artifactId>
-                <version>0.7.1</version>
+                <version>0.7.2</version>
             </dependency>
 
             <!-- Agent Memory -->
@@ -324,12 +324,12 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-core</artifactId>
-                <version>0.6.1</version>
+                <version>0.6.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-agents</artifactId>
-                <version>0.6.1</version>
+                <version>0.6.2</version>
             </dependency>
 
             <!-- Agent Judge -->
