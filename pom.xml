@@ -49,16 +49,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <!-- Jackson 2 — patched default for framework-free consumers. Boot consumers may select
-             their maintenance line's Jackson patch when their Boot BOM has consumer precedence.
-             This import also protects consumers from third-party transitive strays. -->
-        <jackson.version>2.22.2</jackson.version>
-        <!-- Jackson 3 requires the separately versioned Jackson 2 annotations artifact. -->
-        <jackson-annotations.version>2.22</jackson-annotations.version>
-
-        <!-- Jackson 3 (tools.jackson) — converge Spring AI 2.0's transitive Jackson 3 to a
-             CVE-clear floor; jsonschema-generator pulls an older jackson-core transitively. -->
-        <jackson3.version>3.2.2</jackson3.version>
         <!-- NetworkNT JSON Schema Validator — direct floor for no-parent consumers. -->
         <networknt-json-schema-validator.version>3.0.7</networknt-json-schema-validator.version>
         <!-- JSpecify — converge the 1.0.0/1.0.1 split in the combined public consumer graph. -->
@@ -78,31 +68,16 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Jackson BOM — single converged Jackson 2 version for consumers -->
-            <dependency>
-                <groupId>com.fasterxml.jackson</groupId>
-                <artifactId>jackson-bom</artifactId>
-                <version>${jackson.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- Jackson annotations are shared with Jackson 3 and version independently. -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson-annotations.version}</version>
-            </dependency>
-
-            <!-- Jackson 3 BOM (tools.jackson) — converge Spring AI 2.0's transitive Jackson 3 so
-                 jackson-core resolves to the patched floor for non-Boot consumers. -->
-            <dependency>
-                <groupId>tools.jackson</groupId>
-                <artifactId>jackson-bom</artifactId>
-                <version>${jackson3.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!-- Jackson is deliberately NOT managed here, and this absence is load-bearing.
+                 This BOM is framework-neutral: a consumer's framework owns its own Jackson line.
+                 Managing it here silently overrode Spring Boot's Jackson, overrode Quarkus's
+                 depending on import order, and injected a Jackson 2 databind into Micronaut
+                 consumers alongside Micronaut's own differently-versioned annotations.
+                 Consumers now get their framework's Jackson; framework-free consumers get
+                 whatever the member libraries converge on, which is verified by
+                 bom-verification's plain scenario. The CVE-clean minimum is enforced by the
+                 per-project consumer gates, not pinned from here. Do not re-add these entries
+                 without re-measuring a Boot, Quarkus and Micronaut consumer. -->
 
             <!-- NetworkNT — retain the security floor when consumers import this BOM. -->
             <dependency>
