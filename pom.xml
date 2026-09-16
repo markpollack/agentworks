@@ -311,52 +311,52 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-core</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-llm</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-exec</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-file</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-agent-client</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-ai-core</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-koog</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-langchain4j</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-rag</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-judge-spring-ai</artifactId>
-                <version>0.15.2</version>
+                <version>0.17.0</version>
             </dependency>
 
             <!-- Agent Sandbox -->
