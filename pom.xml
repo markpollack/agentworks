@@ -146,52 +146,57 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-core</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.3</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-spring</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.3</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-claude</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.3</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-gemini</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.3</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>journal-core</artifactId>
-                <version>1.10.0</version>
+                <version>1.10.1</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>claude-code-capture</artifactId>
-                <version>1.10.0</version>
+                <version>1.10.1</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>gemini-cli-capture</artifactId>
-                <version>1.10.0</version>
+                <version>1.10.1</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>antigravity-cli-capture</artifactId>
-                <version>1.10.0</version>
+                <version>1.10.1</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>codex-cli-capture</artifactId>
-                <version>1.10.0</version>
+                <version>1.10.1</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>grok-cli-capture</artifactId>
-                <version>1.10.0</version>
+                <version>1.10.1</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>junie-cli-capture</artifactId>
+                <version>1.10.1</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
@@ -236,17 +241,17 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-core</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-claude</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>experiment-workflow</artifactId>
-                <version>0.8.0</version>
+                <version>0.9.0</version>
             </dependency>
 
             <!-- Agent Memory -->
@@ -292,7 +297,7 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>claude-code-sdk</artifactId>
-                <version>1.6.0</version>
+                <version>1.7.0</version>
             </dependency>
 
             <!-- Agent Bench -->
@@ -380,146 +385,161 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-client-core</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-client-spring-boot-autoconfigure</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-model</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-claude</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-gemini</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-launcher</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-qwen-code</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-amazon-q</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-amp</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-antigravity</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-codex</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-grok</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-swe</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-acp</artifactId>
+                <version>0.31.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-junie</artifactId>
+                <version>0.31.0</version>
             </dependency>
 
             <!-- Agent Client Provider SDKs -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>amazon-q-cli-sdk</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>amp-cli-sdk</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>antigravity-cli-sdk</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>codex-cli-sdk</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>gemini-cli-sdk</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>grok-cli-sdk</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>swe-agent-sdk</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
 
             <!-- Agent Client Starters -->
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-claude</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-gemini</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amp</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-codex</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-amazon-q</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-qwen-code</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-antigravity</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-starter-grok</artifactId>
-                <version>0.30.0</version>
+                <version>0.31.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-starter-junie</artifactId>
+                <version>0.31.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
