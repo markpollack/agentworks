@@ -270,27 +270,42 @@
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-annotations</artifactId>
-                <version>0.17.0</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-core</artifactId>
-                <version>0.17.0</version>
+                <version>0.18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.agentclientprotocol</groupId>
+                <artifactId>acp-json-jackson2</artifactId>
+                <version>0.18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.agentclientprotocol</groupId>
+                <artifactId>acp-json-jackson3</artifactId>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-agent-support</artifactId>
-                <version>0.17.0</version>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-test</artifactId>
-                <version>0.17.0</version>
+                <version>0.18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.agentclientprotocol</groupId>
+                <artifactId>acp-streamable-http-jetty</artifactId>
+                <version>0.18.0</version>
             </dependency>
             <dependency>
                 <groupId>com.agentclientprotocol</groupId>
                 <artifactId>acp-websocket-jetty</artifactId>
-                <version>0.17.0</version>
+                <version>0.18.0</version>
             </dependency>
 
             <!-- Claude Agent SDK -->
