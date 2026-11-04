@@ -24,5 +24,7 @@ jobs:
           cache: maven
       - name: Test stable-release SNAPSHOT guard
         run: ./scripts/test-release-guard
+      - name: Test development publication admission
+        run: python3 -m unittest discover -s scripts/tests -v
       - name: Verify current BOM
         run: ./scripts/verify-bom
