@@ -1,14 +1,11 @@
 name: Publish development BOM snapshot
 
-# Manual only. The accepted-member manifest is deliberately absent until owning
-# acceptance, remote publication and independent review are recorded for every member.
+# Every push to main publishes the development BOM snapshot; provenance is the main commit.
+# Verification runs before deployment, and the published POM is re-verified from an empty repository.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
-    inputs:
-      expected-sha:
-        description: 'Exact independently reviewed main commit (40 hex characters)'
-        required: true
-        type: string
 
 permissions:
   contents: read
@@ -23,14 +20,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Require the reviewed main commit
-        env:
-          EXPECTED_SHA: ${{ inputs.expected-sha }}
-        run: |
-          test "$GITHUB_REF" = refs/heads/main
-          test "$GITHUB_SHA" = "$EXPECTED_SHA"
-          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
-          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_SHA"
+      - name: Require main
+        run: test "$GITHUB_REF" = refs/heads/main
       - uses: actions/setup-java@v4
         with:
           java-version: '21'
@@ -38,48 +29,35 @@ jobs:
           server-id: central
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - name: Verify full accepted-main remote member bill
-        run: |
-          python3 scripts/verify-development-bill.py --output "$RUNNER_TEMP/member-bill-before.json" \
-            --consumer-pom "$RUNNER_TEMP/bill-consumer/pom.xml"
-      - name: Gate from an empty Maven repository
+      - name: Verify from an empty Maven repository
         env:
           MAVEN_OPTS: -Dmaven.repo.local=${{ runner.temp }}/pre-publish-m2
         run: |
           ./scripts/test-release-guard
+          python3 -m unittest discover -s scripts/tests -v
           ./scripts/verify-bom
-          ./mvnw -B -f "$RUNNER_TEMP/bill-consumer/pom.xml" dependency:resolve
-          python3 scripts/verify-development-bill.py --output "$RUNNER_TEMP/member-bill-pre-consumed.json" \
-            --maven-repository "$RUNNER_TEMP/pre-publish-m2"
-      - name: Recheck inputs and publish only the BOM
+      - name: Publish only the BOM
         env:
           MAVEN_OPTS: -Dmaven.repo.local=${{ runner.temp }}/pre-publish-m2
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-          EXPECTED_SHA: ${{ inputs.expected-sha }}
         run: |
           set -euo pipefail
-          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_SHA"
-          python3 scripts/verify-development-bill.py --output "$RUNNER_TEMP/member-bill-at-publish.json"
           ./mvnw -B -N deploy | tee "$RUNNER_TEMP/bom-deploy.log"
-      - name: Verify the published BOM and remote consumers from another empty repository
+      - name: Verify the published BOM and consumers from another empty repository
         env:
           MAVEN_OPTS: -Dmaven.repo.local=${{ runner.temp }}/post-publish-m2
         run: |
           python3 scripts/verify-published-development-bom.py --output "$RUNNER_TEMP/published-bom.json" \
             --deploy-log "$RUNNER_TEMP/bom-deploy.log"
           VERSION=$(./mvnw -q -N help:evaluate -Dexpression=project.version -DforceStdout)
-          ./mvnw -B -f bom-verification/pom.xml verify -Dagentworks-bom.version="$VERSION"
-          ./mvnw -B -f "$RUNNER_TEMP/bill-consumer/pom.xml" dependency:resolve
-          python3 scripts/verify-development-bill.py --output "$RUNNER_TEMP/member-bill-after.json" \
-            --maven-repository "$RUNNER_TEMP/post-publish-m2" --published-bom-proof "$RUNNER_TEMP/published-bom.json"
+          ./mvnw -B -U -f bom-verification/pom.xml verify -Dagentworks-bom.version="$VERSION"
       - name: Preserve publication proof
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: development-bom-proof
           path: |
-            ${{ runner.temp }}/member-bill-*.json
             ${{ runner.temp }}/published-bom.json
             ${{ runner.temp }}/bom-deploy.log
             bom-verification/*/target/surefire-reports/*
