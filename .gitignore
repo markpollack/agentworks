@@ -4,3 +4,4 @@ target/
 plans/
 CLAUDE.md
 .campus/
+__pycache__/
