@@ -52,11 +52,14 @@
         <!-- Verified development member lines; final retained candidates require fresh qualification. -->
         <agent-client.version>0.32.1-SNAPSHOT</agent-client.version>
         <agent-journal.version>2.0.0-SNAPSHOT</agent-journal.version>
-        <agent-workflow.version>0.14.1-SNAPSHOT</agent-workflow.version>
-        <agent-judge.version>0.19.0-SNAPSHOT</agent-judge.version>
-        <agent-sandbox.version>0.11.0-SNAPSHOT</agent-sandbox.version>
+        <agent-workflow.version>1.1.0-SNAPSHOT</agent-workflow.version>
+        <agent-judge.version>1.1.0-SNAPSHOT</agent-judge.version>
+        <agent-sandbox.version>1.1.0-SNAPSHOT</agent-sandbox.version>
         <agent-experiment.version>0.10.0-SNAPSHOT</agent-experiment.version>
-        <claude-agent-sdk-java.version>1.8.0-SNAPSHOT</claude-agent-sdk-java.version>
+        <claude-agent-sdk-java.version>1.9.0-SNAPSHOT</claude-agent-sdk-java.version>
+        <agent-hooks.version>0.9.0-SNAPSHOT</agent-hooks.version>
+        <agent-memory.version>1.1.0-SNAPSHOT</agent-memory.version>
+        <agent-bench.version>0.7.0-SNAPSHOT</agent-bench.version>
 
         <!-- NetworkNT JSON Schema Validator — direct floor for no-parent consumers. -->
         <networknt-json-schema-validator.version>3.0.7</networknt-json-schema-validator.version>
@@ -155,22 +158,22 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-core</artifactId>
-                <version>0.8.3</version>
+                <version>${agent-hooks.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-spring</artifactId>
-                <version>0.8.3</version>
+                <version>${agent-hooks.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-claude</artifactId>
-                <version>0.8.3</version>
+                <version>${agent-hooks.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-hooks-gemini</artifactId>
-                <version>0.8.3</version>
+                <version>${agent-hooks.version}</version>
             </dependency>
             <!-- Legacy Journal 1.x is a separate supported surface; Journal 2 modules are below. -->
             <dependency>
@@ -238,15 +241,29 @@
                 <artifactId>workflow-batch</artifactId>
                 <version>${agent-workflow.version}</version>
             </dependency>
-            <!-- No module in the selected current Workflow reactor; retain its explicit legacy pin. -->
-            <dependency>
-                <groupId>io.github.markpollack</groupId>
-                <artifactId>workflow-temporal</artifactId>
-                <version>0.12.3</version>
-            </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>workflow-journal</artifactId>
+                <version>${agent-workflow.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>workflow-spring-boot-autoconfigure</artifactId>
+                <version>${agent-workflow.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>workflow-quarkus</artifactId>
+                <version>${agent-workflow.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>workflow-quarkus-deployment</artifactId>
+                <version>${agent-workflow.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>workflow-micronaut</artifactId>
                 <version>${agent-workflow.version}</version>
             </dependency>
             <dependency>
@@ -269,12 +286,12 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-core</artifactId>
-                <version>0.5.1</version>
+                <version>${agent-memory.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>memory-advisor</artifactId>
-                <version>0.5.1</version>
+                <version>${agent-memory.version}</version>
             </dependency>
 
             <!-- Agent Client Protocol (ACP) -->
@@ -325,12 +342,12 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-core</artifactId>
-                <version>0.6.3</version>
+                <version>${agent-bench.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-bench-agents</artifactId>
-                <version>0.6.3</version>
+                <version>${agent-bench.version}</version>
             </dependency>
 
             <!-- Agent Judge -->
@@ -411,6 +428,26 @@
             <dependency>
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-client-spring-boot-autoconfigure</artifactId>
+                <version>${agent-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-client-quarkus</artifactId>
+                <version>${agent-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-client-quarkus-deployment</artifactId>
+                <version>${agent-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-client-micronaut</artifactId>
+                <version>${agent-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-client-junie</artifactId>
                 <version>${agent-client.version}</version>
             </dependency>
             <dependency>
@@ -653,6 +690,24 @@
                 <groupId>io.github.markpollack</groupId>
                 <artifactId>agent-sandbox-parent</artifactId>
                 <version>${agent-sandbox.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-hooks-parent</artifactId>
+                <version>${agent-hooks.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-memory-parent</artifactId>
+                <version>${agent-memory.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>io.github.markpollack</groupId>
+                <artifactId>agent-bench-parent</artifactId>
+                <version>${agent-bench.version}</version>
                 <type>pom</type>
             </dependency>
             <dependency>
